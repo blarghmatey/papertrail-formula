@@ -19,7 +19,9 @@ download_certificate:
   file.managed:
     - name: /etc/papertrail-bundle.pem
     - source: https://papertrailapp.com/tools/papertrail-bundle.pem
-    - source_hash: {{ salt['pillar.get']('papertrail.certificate_hash', 'c75ce425e553e416bde4e412439e3d09') }}
+    - source_hash: md5={{ salt['pillar.get']('papertrail.certificate_hash', 'c75ce425e553e416bde4e412439e3d09') }}
+    - require_in:
+        - service: restart_syslog
 {% endif %}
 
 restart_syslog:
