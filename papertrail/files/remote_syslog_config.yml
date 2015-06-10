@@ -1,0 +1,11 @@
+files: {{files}}
+exclude_files: {{exclude_files}}
+{% if hostname %}
+hostname: {{hostname}}  # override OS hostname
+{% endif %}
+exclude_patterns: {{exclude_patterns}}
+destination:
+  host: {{subdomain}}.papertrailapp.com
+  port: {{port}}   # NOTE: change this to YOUR papertrail port!
+  protocol: {{protocol}}
+new_file_check_interval: "10" # Check every 10 seconds

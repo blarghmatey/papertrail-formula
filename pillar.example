@@ -1,0 +1,15 @@
+papertrail:
+  use_syslog: True
+  syslog_protocol: tls
+  subdomain: logs
+  port: 12345
+  remote_syslog:
+    use: True
+    md5hash: e08f03664bb097cb91c96dd2d4e0f041
+    app_log_files:
+        - /var/log/appname.log
+        - /var/log/otherapp.log
+    exclude_files:
+        - /var/log/oldfiles.*
+    exclude_patterns:
+        - info
