@@ -19,7 +19,7 @@ download_certificate:
   file.managed:
     - name: /etc/papertrail-bundle.pem
     - source: https://papertrailapp.com/tools/papertrail-bundle.pem
-    - source_hash: {% salt['pillar.get']('papertrail.certificate_hash', 'c75ce425e553e416bde4e412439e3d09') %}
+    - source_hash: {{ salt['pillar.get']('papertrail.certificate_hash', 'c75ce425e553e416bde4e412439e3d09') }}
 {% endif %}
 
 restart_syslog:
@@ -51,13 +51,13 @@ configure_remote_syslog:
     - name: /etc/log_files.yml
     - source: salt://papertrail/files/remote_syslog_config.yml
     - context:
-        files: {% salt['pillar.get']('papertrail.remote_syslog.app_log_files', []) %}
-        exclude_files: {% salt['pillar.get']('papertrail.remote_syslog.exclude_files', []) %}
-        exclude_patterns: {% salt['pillar.get']('papertrail.remote_syslog.exclude_patterns', []) %}
+        files: {{ salt['pillar.get']('papertrail.remote_syslog.app_log_files', []) }}
+        exclude_files: {{ salt['pillar.get']('papertrail.remote_syslog.exclude_files', []) }}
+        exclude_patterns: {{ salt['pillar.get']('papertrail.remote_syslog.exclude_patterns', []) }}
         subdomain: {{subdomain}}
         port: {{port}}
         protocol: {{protocol}}
-        hostname: {% salt['pillar.get']('papertrail.remote_syslog.hostname') %}
+        hostname: {{ salt['pillar.get']('papertrail.remote_syslog.hostname') }}
 
 setup_init:
   file.managed:
