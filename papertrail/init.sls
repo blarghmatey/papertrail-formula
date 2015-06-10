@@ -61,8 +61,8 @@ configure_remote_syslog:
 
 setup_init:
   file.managed:
-    - name: {{papertrail.init_file}}
-    - source: {{papertrail.init_file_source}}
+    - name: {{papertrail.remote_syslog_init_file}}
+    - source: {{papertrail.remote_syslog_init_file_source}}
 
 start_service:
   service.running:
