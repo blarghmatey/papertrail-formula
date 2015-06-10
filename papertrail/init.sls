@@ -1,7 +1,7 @@
 {% from "papertrail/map.jinja" import papertrail with context %}
 
 {% set port = salt['pillar.get']('papertrail.port', '') %}
-{% set protocol =}salt['pillar.get']('papertrail.syslog_protocol', 'tls') %}
+{% set protocol = salt['pillar.get']('papertrail.syslog_protocol', 'tls') %}
 {% set subdomain = salt['pillar.get']('papertrail.subdomain', 'logs') %}
 
 {% if salt['pillar.get']('papertrail.use_syslog', True) %}
