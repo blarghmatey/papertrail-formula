@@ -42,6 +42,7 @@ download_remote_syslog:
     - source_hash: md5={{md5hash}}
     - archive_format: tar
     - tar_options: z
+    - if_missing: /opt/remote_syslog
 
 install_remote_syslog:
   file.rename:
