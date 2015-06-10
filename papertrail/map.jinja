@@ -1,17 +1,17 @@
 {% set papertrail = salt['grains.filter_by']({
     'Debian': {
-        'syslog_conf_file': '/etc/rsyslog.conf'
-        'remote_syslog_init_file': '/etc/init/remote_syslog.conf'
+        'syslog_conf_file': '/etc/rsyslog.conf',
+        'remote_syslog_init_file': '/etc/init/remote_syslog.conf',
         'remote_syslog_init_file_source': 'salt://papertrail/files/remote_syslog.upstart.conf'
     },
     'RedHat': {
-        'syslog_conf_file': '/etc/rsyslog.conf'
-        'remote_syslog_init_file': '/etc/systemd/system/remote_syslog.service'
+        'syslog_conf_file': '/etc/rsyslog.conf',
+        'remote_syslog_init_file': '/etc/systemd/system/remote_syslog.service',
         'remote_syslog_init_file_source': 'salt://papertrail/files/remote_syslog.systemd.conf'
     },
     'Arch': {
-        'syslog_conf_file': '/etc/syslog-ng.conf'
-        'remote_syslog_init_file': '/etc/systemd/system/remote_syslog.service'
+        'syslog_conf_file': '/etc/syslog-ng.conf',
+        'remote_syslog_init_file': '/etc/systemd/system/remote_syslog.service',
         'remote_syslog_init_file_source': 'salt://papertrail/files/remote_syslog.systemd.conf'
     }
 }, merge=salt['pillar.get']('papertrail:lookup')) %}
