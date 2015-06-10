@@ -8,7 +8,7 @@
 configure_syslog:
   file.append:
     - name: {{papertrail.syslog_conf_file}}
-    - source: salt://papertrail/files/{protocol}_syslog_config.conf
+    - source: salt://papertrail/files/{{protocol}}_syslog_config.conf
     - context:
         subdomain: {{subdomain}}
         port: ':{{port}}'
